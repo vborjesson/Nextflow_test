@@ -4,7 +4,7 @@ params.in = ''
 sequence = file(params.in)
 
 process findDupli {
-	publishDir "~/detectSV", mode: 'copy', overwrite: true
+	publishDir "/home/vanja/detectSV", mode: 'copy', overwrite: true
 	errorStrategy 'ignore'
 
 	input:
@@ -14,9 +14,9 @@ process findDupli {
 	file 'output1' into records 
 
 	script:
-	'''
-	python3 testnext.py ${sequence}  
-	'''
+	"""
+	python3 /home/vanja/detectSV/testnext.py ${sequence} > output1  
+	"""
 }
 
 
